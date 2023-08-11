@@ -123,11 +123,24 @@ function filterUnfundedOnly() {
 
     addGamesToPage(unfundedGames, gamesContainer);
 }
+// ...
+
+// Define the gamesContainer variable
+const gamesContainer = document.getElementById('games-container');
+
+// show only games that do not yet have enough funding
+function filterUnfundedOnly() {
+    console.log("filterUnfundedOnly function is being called.");
+    deleteChildElements(gamesContainer);
+
+    const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
+
+    addGamesToPage(unfundedGames, gamesContainer);
+}
 
 // show only games that are fully funded
 function filterFundedOnly() {
     console.log("filterFundedOnly function is being called.");
-    const gamesContainer = document.getElementById('games-container');
     deleteChildElements(gamesContainer);
 
     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
@@ -138,11 +151,12 @@ function filterFundedOnly() {
 // show all games
 function showAllGames() {
     console.log("showAllGames function is being called.");
-    const gamesContainer = document.getElementById('games-container');
     deleteChildElements(gamesContainer);
 
     addGamesToPage(GAMES_JSON, gamesContainer);
 }
+
+// ...
 
 // ...
 
