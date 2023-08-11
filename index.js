@@ -1,5 +1,5 @@
 
-
+const gamesContainer = document.getElementById('games-container');
 // import the JSON data about the crowd funded games from the games.js file
 import GAMES_DATA from './games.js';
 
