@@ -27,30 +27,36 @@ function deleteChildElements(parent) {
  * Skills used: DOM manipulation, for loops, template literals, functions
 */
 // Step 1: Create a for loop within the addGamesToPage function
+// ...
+
+// Step 1: Create a for loop within the addGamesToPage function
 function addGamesToPage(games) {
     for (let i = 0; i < games.length; i++) {
-      const game = games[i];
+        const game = games[i];
       
-      // Step 2: Create a new div element with the class "game-card"
-      const gameCard = document.createElement('div');
-      gameCard.classList.add('game-card');
-  
-      // Step 3: Use template literal to set the inner HTML of the div
-      gameCard.innerHTML = `
-        <img src="${game.img}" alt="${game.name}" class="game-img">
-        <h2>${game.name}</h2>
-        <p>${game.description}</p>
-        <p>Price: $${game.price}</p>
-      `;
-  
-      // Step 4: Append the div to the correct element in the DOM
-      const gamesContainer = document.getElementById('games-container');
-      gamesContainer.appendChild(gameCard);
+        // Step 2: Create a new div element with the class "game-card"
+        const gameCard = document.createElement('div');
+        gameCard.classList.add('game-card');
+
+        // Step 3: Use template literal to set the inner HTML of the div
+        gameCard.innerHTML = `
+            <img src="${game.img}" alt="${game.name}" class="game-img">
+            <h2>${game.name}</h2>
+            <p>${game.description}</p>
+            <p>Price: $${game.pledged}</p>
+        `;
+
+        // Step 4: Append the div to the correct element in the DOM
+        const gamesContainer = document.getElementById('games-container');
+        gamesContainer.appendChild(gameCard);
     }
-  }
-  
-  // Step 5: Call the addGamesToPage function with the correct variable
-  addGamesToPage(GAMES_JSON); // Assuming GAMES_JSON is the array of game objects
+}
+
+// Step 5: Call the addGamesToPage function with the correct variable
+addGamesToPage(GAMES_JSON); // Assuming GAMES_JSON is the array of game objects
+
+// ...
+
   
   // Secret key component 1: The loop will run as many times as there are items in the "games" array.
   
