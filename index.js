@@ -33,6 +33,7 @@ function addGamesToPage(games) {
         // Step 4: Append the div to the correct element in the DOM
         const gamesContainer = document.getElementById('games-container');
         gamesContainer.appendChild(gameCard);
+        container.appendChild(gameCard);
     }
 }
 
@@ -110,37 +111,41 @@ gamesCard.innerHTML = GAMES_JSON.length;
 // }
 
 
+// ...
 
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
-    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
+    const gamesContainer = document.getElementById('games-container');
     deleteChildElements(gamesContainer);
 
     const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
 
-    addGamesToPage(unfundedGames);
+    addGamesToPage(unfundedGames, gamesContainer);
 }
 
 // show only games that are fully funded
 function filterFundedOnly() {
     console.log("filterFundedOnly function is being called.");
-    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
+    const gamesContainer = document.getElementById('games-container');
     deleteChildElements(gamesContainer);
 
     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
 
-    addGamesToPage(fundedGames);
+    addGamesToPage(fundedGames, gamesContainer);
 }
 
 // show all games
 function showAllGames() {
     console.log("showAllGames function is being called.");
-    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
+    const gamesContainer = document.getElementById('games-container');
     deleteChildElements(gamesContainer);
 
-    addGamesToPage(GAMES_JSON);
+    addGamesToPage(GAMES_JSON, gamesContainer);
 }
+
+// ...
+
 
 // select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
