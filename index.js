@@ -90,59 +90,96 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
 */
-// Step 1: Complete the filterUnfundedOnly function
+
+// Helper function to delete child elements of a container
+function deleteChildElements(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
+// show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
-    // Use filter() to get a list of games that have not yet met their goal
-    const unfundedGames = GAMES_JSON.filter(game => game.pledged < game.goal);
-
-    // Use the function we previously created to add the unfunded games to the DOM
+    const unfundedGames = games.filter(game => game.amountRaised < game.goalAmount);
     addGamesToPage(unfundedGames);
-
-    // Secret key component 1: How many games are in the array returned by filterUnfundedOnly?
-    console.log("Number of unfunded games:", unfundedGames.length);
+    return unfundedGames;
 }
 
-// Step 2: Complete the filterFundedOnly function
+// show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
-    // Use filter() to get a list of games that have met or exceeded their goal
-    const fundedGames = GAMES_JSON.filter(game => game.pledged >= game.goal);
-
-    // Use the function we previously created to add the funded games to the DOM
+    const fundedGames = games.filter(game => game.amountRaised >= game.goalAmount);
     addGamesToPage(fundedGames);
-
-    // Secret key component 2: How many games are in the array returned by filterFundedOnly?
-    console.log("Number of funded games:", fundedGames.length);
+    return fundedGames;
 }
 
-// Step 3: Finish the showAllGames function
+// show all games
 function showAllGames() {
     deleteChildElements(gamesContainer);
-
-    // Use the function we previously created to add all games from the JSON data to the DOM
-    addGamesToPage(GAMES_JSON);
+    addGamesToPage(games);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOMContentLoaded event fired");
+// select each button in the "Our Games" section
+const unfundedBtn = document.getElementById("unfunded-btn");
+const fundedBtn = document.getElementById("funded-btn");
+const allBtn = document.getElementById("all-btn");
 
-    // Your code here, including event listener setup
-    const unfundedBtn = document.getElementById("unfunded-btn");
-    const fundedBtn = document.getElementById("funded-btn");
-    const allBtn = document.getElementById("all-btn");
-
-    unfundedBtn.addEventListener("click", filterUnfundedOnly);
-    fundedBtn.addEventListener("click", filterFundedOnly);
-    allBtn.addEventListener("click", showAllGames);
-
-    // ... (rest of the code)
-});
+// add event listeners with the correct functions to each button
+unfundedBtn.addEventListener("click", filterUnfundedOnly);
+fundedBtn.addEventListener("click", filterFundedOnly);
+allBtn.addEventListener("click", showAllGames);
 
 
 
+
+
+
+
+
+
+
+
+
+
+// // show only games that do not yet have enough funding
+// function filterUnfundedOnly() {
+//     deleteChildElements(gamesContainer);
+
+//     // use filter() to get a list of games that have not yet met their goal
+
+
+//     // use the function we previously created to add the unfunded games to the DOM
+
+// }
+
+// // show only games that are fully funded
+// function filterFundedOnly() {
+//     deleteChildElements(gamesContainer);
+
+//     // use filter() to get a list of games that have met or exceeded their goal
+
+
+//     // use the function we previously created to add unfunded games to the DOM
+
+// }
+
+// // show all games
+// function showAllGames() {
+//     deleteChildElements(gamesContainer);
+
+//     // add all games from the JSON data to the DOM
+
+// }
+
+// // select each button in the "Our Games" section
+// const unfundedBtn = document.getElementById("unfunded-btn");
+// const fundedBtn = document.getElementById("funded-btn");
+// const allBtn = document.getElementById("all-btn");
+
+// // add event listeners with the correct functions to each button
 
 
 /*************************************************************************************
