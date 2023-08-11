@@ -82,8 +82,39 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * Skills used: functions, filter
 */
 // show only games that do not yet have enough funding
+// function filterUnfundedOnly() {
+//     console.log("filterUnfundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
+
+//     addGamesToPage(unfundedGames);
+// }
+
+// // show only games that are fully funded
+// function filterFundedOnly() {
+//     console.log("filterFundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
+
+//     addGamesToPage(fundedGames);
+// }
+
+// // show all games
+// function showAllGames() {
+//     console.log("showAllGames function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     addGamesToPage(GAMES_JSON);
+// }
+
+
+
+// show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
+    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
     deleteChildElements(gamesContainer);
 
     const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
@@ -94,6 +125,7 @@ function filterUnfundedOnly() {
 // show only games that are fully funded
 function filterFundedOnly() {
     console.log("filterFundedOnly function is being called.");
+    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
     deleteChildElements(gamesContainer);
 
     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
@@ -104,13 +136,11 @@ function filterFundedOnly() {
 // show all games
 function showAllGames() {
     console.log("showAllGames function is being called.");
+    const gamesContainer = document.getElementById('games-container'); // Define gamesContainer here
     deleteChildElements(gamesContainer);
 
     addGamesToPage(GAMES_JSON);
 }
-
-
-
 
 // select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
