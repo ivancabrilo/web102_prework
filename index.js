@@ -26,7 +26,7 @@ function addGamesToPage(games) {
             <img src="${game.img}" alt="${game.name}" class="game-img">
             <h2>${game.name}</h2>
             <p>${game.description}</p>
-            <p>Price: $${game.pledged}</p>
+            <p>Backers: ${game.backers}</p>
         `;
 
         // Step 4: Append the div to the correct element in the DOM
