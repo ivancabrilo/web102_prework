@@ -124,7 +124,7 @@ function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
     deleteChildElements(gamesContainer);
 
-    const unfundedGames = GAMES_JSON.filter(game => parseInt(game.raised) < parseInt(game.goal));
+    const unfundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal));
 
     if (unfundedGames.length === 0) {
         const noGamesMessage = document.createElement('p');
@@ -139,7 +139,7 @@ function filterFundedOnly() {
     console.log("filterFundedOnly function is being called.");
     deleteChildElements(gamesContainer);
 
-    const fundedGames = GAMES_JSON.filter(game => parseInt(game.raised) >= parseInt(game.goal));
+    const fundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) >= parseInt(game.goal));
 
     if (fundedGames.length === 0) {
         const noGamesMessage = document.createElement('p');
