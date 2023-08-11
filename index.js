@@ -127,6 +127,8 @@ function showAllGames() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOMContentLoaded event fired");
+
     // Your code here, including event listener setup
     const unfundedBtn = document.getElementById("unfunded-btn");
     const fundedBtn = document.getElementById("funded-btn");
@@ -138,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ... (rest of the code)
 });
+
 
 
 
