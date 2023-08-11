@@ -17,24 +17,7 @@
     <h2>Welcome to Sea Monster!</h2>
     <div id="description-container">
         <p>The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
-        <script>
-            // Challenge 6 Code: Display Company Information
-            const descriptionContainer = document.getElementById("description-container");
-    
-            const unfundedGamesCount = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal)).length;
-    
-            const displayStr = `
-                A total of $${totalRaised.toLocaleString()} has been raised for ${GAMES_JSON.length} games.
-                Currently, ${unfundedGamesCount} game${unfundedGamesCount !== 1 ? 's' : ''} remains unfunded.
-                We need your help to fund these amazing games!
-            `;
-    
-            const companyInfoParagraph = document.createElement('p');
-            companyInfoParagraph.textContent = displayStr;
-    
-            descriptionContainer.appendChild(companyInfoParagraph);
-        </script>
-    
+        
     </div>
 
     <!-- top games & other interesting stats -->
