@@ -181,23 +181,25 @@ allBtn.addEventListener("click", showAllGames);
  * Challenge 6: Add more information at the top of the page about the company.
  * Skills used: template literals, ternary operator
 */
-// Use filter to count the number of unfunded games
-const numUnfundedGames = GAMES_JSON.filter(game => parseInt(game.raised) < parseInt(game.goal)).length;
+// grab the description container
+const descriptionContainer = document.getElementById("description-container");
 
-// Create a string that explains the number of unfunded games using the ternary operator
-const unfundedGamesExplanation = numUnfundedGames === 0
-  ? 'All games have been fully funded!'
-  : numUnfundedGames === 1
-    ? '1 game remains unfunded.'
-    : `${numUnfundedGames} games remain unfunded.`;
+// Step 1: Use filter or reduce to count the number of unfunded games
+const unfundedGamesCount = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal)).length;
 
-// Create a new DOM element containing the template string
-const unfundedGamesElement = document.createElement('p');
-unfundedGamesElement.textContent = `At Sea Monster, our purpose is to fund independent games. With 12 years of operation, we've raised a total of $${totalRaised.toLocaleString()} for ${GAMES_JSON.length} games. ${unfundedGamesExplanation} We need your support to bring these amazing games to life!`;
+// Step 2: Create a template string to display the company information
+const displayStr = `
+    A total of $${totalRaised.toLocaleString()} has been raised for ${GAMES_JSON.length} games.
+    Currently, ${unfundedGamesCount} game${unfundedGamesCount !== 1 ? 's' : ''} remains unfunded.
+    We need your help to fund these amazing games!
+`;
 
-// Append the new DOM element to the description container
-descriptionContainer.appendChild(unfundedGamesElement);
+// Step 3: Create a new paragraph element and add the template string to it
+const companyInfoParagraph = document.createElement('p');
+companyInfoParagraph.textContent = displayStr;
 
+// Step 4: Append the paragraph element to the description container
+descriptionContainer.appendChild(companyInfoParagraph);
 
 // grab the description container
 //const descriptionContainer = document.getElementById("description-container");
