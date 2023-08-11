@@ -126,16 +126,18 @@ function showAllGames() {
     addGamesToPage(GAMES_JSON);
 }
 
-// Select each button in the "Our Games" section
-const unfundedBtn = document.getElementById("unfunded-btn");
-const fundedBtn = document.getElementById("funded-btn");
-const allBtn = document.getElementById("all-btn");
+document.addEventListener("DOMContentLoaded", function() {
+    // Your code here, including event listener setup
+    const unfundedBtn = document.getElementById("unfunded-btn");
+    const fundedBtn = document.getElementById("funded-btn");
+    const allBtn = document.getElementById("all-btn");
 
-// Add event listeners with the correct functions to each button
-unfundedBtn.addEventListener("click", filterUnfundedOnly);
-fundedBtn.addEventListener("click", filterFundedOnly);
-allBtn.addEventListener("click", showAllGames);
+    unfundedBtn.addEventListener("click", filterUnfundedOnly);
+    fundedBtn.addEventListener("click", filterFundedOnly);
+    allBtn.addEventListener("click", showAllGames);
 
+    // ... (rest of the code)
+});
 
 
 
