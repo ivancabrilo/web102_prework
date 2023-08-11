@@ -81,25 +81,6 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
 */
-// show only games that do not yet have enough funding
-// function filterUnfundedOnly() {
-//     console.log("filterUnfundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
-
-//     addGamesToPage(unfundedGames);
-// }
-
-// // show only games that are fully funded
-// function filterFundedOnly() {
-//     console.log("filterFundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
-
-//     addGamesToPage(fundedGames);
-// }
 
 function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
@@ -120,37 +101,6 @@ function filterFundedOnly() {
 }
 
 
-
-
-// function filterUnfundedOnly() {
-//     console.log("filterUnfundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const unfundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal));
-
-//     if (unfundedGames.length === 0) {
-//         const noGamesMessage = document.createElement('p');
-//         noGamesMessage.textContent = "No unfunded games found.";
-//         gamesContainer.appendChild(noGamesMessage);
-//     } else {
-//         addGamesToPage(unfundedGames);
-//     }
-// }
-
-// function filterFundedOnly() {
-//     console.log("filterFundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const fundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) >= parseInt(game.goal));
-
-//     if (fundedGames.length === 0) {
-//         const noGamesMessage = document.createElement('p');
-//         noGamesMessage.textContent = "No funded games found.";
-//         gamesContainer.appendChild(noGamesMessage);
-//     } else {
-//         addGamesToPage(fundedGames);
-//     }
-// }
 
 
 
@@ -201,16 +151,7 @@ companyInfoParagraph.textContent = displayStr;
 // Step 4: Append the paragraph element to the description container
 descriptionContainer.appendChild(companyInfoParagraph);
 
-// grab the description container
-//const descriptionContainer = document.getElementById("description-container");
 
-// use filter or reduce to count the number of unfunded games
-
-
-// create a string that explains the number of unfunded games using the ternary operator
-
-
-// create a new DOM element containing the template string and append it to the description container
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
