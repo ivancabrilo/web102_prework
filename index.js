@@ -37,7 +37,7 @@ function addGamesToPage(games) {
   
       // Step 3: Use template literal to set the inner HTML of the div
       gameCard.innerHTML = `
-        <img src="${game.image}" alt="${game.name}" class="game-img">
+        <img src="${game.img}" alt="${game.name}" class="game-img">
         <h2>${game.name}</h2>
         <p>${game.description}</p>
         <p>Price: $${game.price}</p>
