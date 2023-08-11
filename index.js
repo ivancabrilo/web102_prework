@@ -101,38 +101,13 @@ gamesCard.innerHTML = GAMES_JSON.length;
 //     addGamesToPage(fundedGames);
 // }
 
-// function filterUnfundedOnly() {
-//     console.log("filterUnfundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const unfundedGames = GAMES_JSON.filter(game => parseInt(game.raised) < parseInt(game.goal));
-
-//     addGamesToPage(unfundedGames);
-// }
-
-// function filterFundedOnly() {
-//     console.log("filterFundedOnly function is being called.");
-//     deleteChildElements(gamesContainer);
-
-//     const fundedGames = GAMES_JSON.filter(game => parseInt(game.raised) >= parseInt(game.goal));
-
-//     addGamesToPage(fundedGames);
-// }
-
-
 function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
     deleteChildElements(gamesContainer);
 
     const unfundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal));
 
-    if (unfundedGames.length === 0) {
-        const noGamesMessage = document.createElement('p');
-        noGamesMessage.textContent = "No unfunded games found.";
-        gamesContainer.appendChild(noGamesMessage);
-    } else {
-        addGamesToPage(unfundedGames);
-    }
+    addGamesToPage(unfundedGames);
 }
 
 function filterFundedOnly() {
@@ -141,14 +116,41 @@ function filterFundedOnly() {
 
     const fundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) >= parseInt(game.goal));
 
-    if (fundedGames.length === 0) {
-        const noGamesMessage = document.createElement('p');
-        noGamesMessage.textContent = "No funded games found.";
-        gamesContainer.appendChild(noGamesMessage);
-    } else {
-        addGamesToPage(fundedGames);
-    }
+    addGamesToPage(fundedGames);
 }
+
+
+
+
+// function filterUnfundedOnly() {
+//     console.log("filterUnfundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const unfundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) < parseInt(game.goal));
+
+//     if (unfundedGames.length === 0) {
+//         const noGamesMessage = document.createElement('p');
+//         noGamesMessage.textContent = "No unfunded games found.";
+//         gamesContainer.appendChild(noGamesMessage);
+//     } else {
+//         addGamesToPage(unfundedGames);
+//     }
+// }
+
+// function filterFundedOnly() {
+//     console.log("filterFundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const fundedGames = GAMES_JSON.filter(game => parseInt(game.pledged) >= parseInt(game.goal));
+
+//     if (fundedGames.length === 0) {
+//         const noGamesMessage = document.createElement('p');
+//         noGamesMessage.textContent = "No funded games found.";
+//         gamesContainer.appendChild(noGamesMessage);
+//     } else {
+//         addGamesToPage(fundedGames);
+//     }
+// }
 
 
 
