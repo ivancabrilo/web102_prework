@@ -181,9 +181,26 @@ allBtn.addEventListener("click", showAllGames);
  * Challenge 6: Add more information at the top of the page about the company.
  * Skills used: template literals, ternary operator
 */
+// Use filter to count the number of unfunded games
+const numUnfundedGames = GAMES_JSON.filter(game => parseInt(game.raised) < parseInt(game.goal)).length;
+
+// Create a string that explains the number of unfunded games using the ternary operator
+const unfundedGamesExplanation = numUnfundedGames === 0
+  ? 'All games have been fully funded!'
+  : numUnfundedGames === 1
+    ? '1 game remains unfunded.'
+    : `${numUnfundedGames} games remain unfunded.`;
+
+// Create a new DOM element containing the template string
+const unfundedGamesElement = document.createElement('p');
+unfundedGamesElement.textContent = `At Sea Monster, our purpose is to fund independent games. With 12 years of operation, we've raised a total of $${totalRaised.toLocaleString()} for ${GAMES_JSON.length} games. ${unfundedGamesExplanation} We need your support to bring these amazing games to life!`;
+
+// Append the new DOM element to the description container
+descriptionContainer.appendChild(unfundedGamesElement);
+
 
 // grab the description container
-const descriptionContainer = document.getElementById("description-container");
+//const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
 
