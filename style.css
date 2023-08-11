@@ -19,8 +19,17 @@ body {
     margin-top: -10px;
 }
 
+
+/* Add flexbox to the stats-container */
 .stats-container {
     display: flex;
+    /* Add any other flexbox properties here if needed */
+}
+
+/* Set cursor to pointer and box-shadow on hover */
+.stats-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue;
 }
 
 .stats-card {

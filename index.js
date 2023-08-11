@@ -22,14 +22,52 @@ function deleteChildElements(parent) {
  * Skills used: DOM manipulation, for loops, template literals, functions
 */
 
+/*****************************************************************************
+ * Challenge 3: Add data about each game as a card to the games-container
+ * Skills used: DOM manipulation, for loops, template literals, functions
+*/
+
 // grab the element with the id games-container
 const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
+    for (const game of games) {
+        // create a new div element, which will become the game card
+        const gameCard = document.createElement("div");
+
+        // add the class game-card to the list
+        gameCard.classList.add("game-card");
+
+        // set the inner HTML using a template literal to display info about each game
+        gameCard.innerHTML = `
+            <img src="${game.img}" alt="${game.name}" class="game-img" />
+            <h2>${game.name}</h2>
+            <p>${game.description}</p>
+            <p>Pledged: $${game.pledged.toLocaleString()}</p>
+            <p>Backers: ${game.backers.toLocaleString()}</p>
+        `;
+
+        // append the game to the games-container
+        gamesContainer.appendChild(gameCard);
+    }
+}
+
+
+// call the function we just defined using the provided game data
+// Call the addGamesToPage function with the correct variable (games data)
+addGamesToPage(games);
+
+
+// grab the element with the id games-container
+////const gamesContainer = document.getElementById("games-container");
+
+// create a function that adds all data from the games array to the page
+
+//// function addGamesToPage(games) {
 
     // loop over each item in the data
-
+    
 
         // create a new div element, which will become the game card
 
@@ -45,7 +83,7 @@ function addGamesToPage(games) {
 
         // append the game to the games-container
 
-}
+////}
 
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
