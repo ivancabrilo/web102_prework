@@ -90,8 +90,6 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * total number of contributions, amount donated, and number of games on the site.
  * Skills used: functions, filter
 */
-
-// show only games that do not yet have enough funding
 // Step 1: Complete the filterUnfundedOnly function
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
@@ -106,8 +104,6 @@ function filterUnfundedOnly() {
     console.log("Number of unfunded games:", unfundedGames.length);
 }
 
-
-// show only games that are fully funded
 // Step 2: Complete the filterFundedOnly function
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
@@ -122,7 +118,6 @@ function filterFundedOnly() {
     console.log("Number of funded games:", fundedGames.length);
 }
 
-// show all games
 // Step 3: Finish the showAllGames function
 function showAllGames() {
     deleteChildElements(gamesContainer);
@@ -130,8 +125,6 @@ function showAllGames() {
     // Use the function we previously created to add all games from the JSON data to the DOM
     addGamesToPage(GAMES_JSON);
 }
-
-
 
 // Select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
@@ -142,6 +135,9 @@ const allBtn = document.getElementById("all-btn");
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
+
+
+
 
 
 /*************************************************************************************
