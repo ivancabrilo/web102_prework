@@ -1,8 +1,4 @@
-/*****************************************************************************
- * Challenge 2: Review the provided code. The provided code includes:
- * -> Statements that import data from games.js
- * -> A function that deletes all child elements from a parent element in the DOM
-*/
+
 
 // import the JSON data about the crowd funded games from the games.js file
 import GAMES_DATA from './games.js';
@@ -17,19 +13,7 @@ function deleteChildElements(parent) {
     }
 }
 
-/*****************************************************************************
- * Challenge 3: Add data about each game as a card to the games-container
- * Skills used: DOM manipulation, for loops, template literals, functions
-*/
 
-/*****************************************************************************
- * Challenge 3: Add data about each game as a card to the games-container
- * Skills used: DOM manipulation, for loops, template literals, functions
-*/
-// Step 1: Create a for loop within the addGamesToPage function
-// ...
-
-// Step 1: Create a for loop within the addGamesToPage function
 function addGamesToPage(games) {
     for (let i = 0; i < games.length; i++) {
         const game = games[i];
@@ -56,11 +40,7 @@ function addGamesToPage(games) {
 addGamesToPage(GAMES_JSON); // Assuming GAMES_JSON is the array of game objects
 
 
-/*************************************************************************************
- * Challenge 4: Create the summary statistics at the top of the page displaying the
- * total number of contributions, amount donated, and number of games on the site.
- * Skills used: arrow functions, reduce, template literals
-*/
+
 
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
@@ -85,6 +65,17 @@ raisedCard.innerHTML = `$${totalRaised.toLocaleString()}`;
 const gamesCard = document.getElementById("num-games");
 gamesCard.innerHTML = GAMES_JSON.length;
 
+
+
+
+
+
+
+
+
+
+
+
 /*************************************************************************************
  * Challenge 5: Add functions to filter the funded and unfunded games
  * total number of contributions, amount donated, and number of games on the site.
@@ -93,6 +84,7 @@ gamesCard.innerHTML = GAMES_JSON.length;
 
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
+    console.log("filterUnfundedOnly function is being called."); // Add this line
     deleteChildElements(gamesContainer);
 
     const unfundedGames = games.filter(game => game.raised < game.goal);
@@ -100,20 +92,26 @@ function filterUnfundedOnly() {
     addGamesToPage(unfundedGames);
 }
 
-
-// show all games
+// show only games that are fully funded
 function filterFundedOnly() {
+    console.log("filterFundedOnly function is being called."); // Add this line
     deleteChildElements(gamesContainer);
 
     const fundedGames = games.filter(game => game.raised >= game.goal);
 
     addGamesToPage(fundedGames);
 }
+
+// show all games
 function showAllGames() {
+    console.log("showAllGames function is being called."); // Add this line
     deleteChildElements(gamesContainer);
 
     addGamesToPage(games);
 }
+
+
+
 
 
 // select each button in the "Our Games" section
@@ -125,6 +123,7 @@ const allBtn = document.getElementById("all-btn");
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
+
 
 
 /*************************************************************************************
