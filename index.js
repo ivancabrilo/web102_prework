@@ -1,4 +1,5 @@
 
+const gamesContainer = document.getElementById('games-container');
 // import the JSON data about the crowd funded games from the games.js file
 import GAMES_DATA from './games.js';
 
@@ -32,8 +33,6 @@ function addGamesToPage(games) {
         // Step 4: Append the div to the correct element in the DOM
         //const gamesContainer = document.getElementById('games-container');
         gamesContainer.appendChild(gameCard);
-
-        const gamesContainer = document.getElementById('games-container');
     }
 }
 
