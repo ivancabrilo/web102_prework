@@ -33,7 +33,7 @@ function addGamesToPage(games) {
         // Step 4: Append the div to the correct element in the DOM
         const gamesContainer = document.getElementById('games-container');
         gamesContainer.appendChild(gameCard);
-        container.appendChild(gameCard);
+        //container.appendChild(gameCard);
     }
 }
 
