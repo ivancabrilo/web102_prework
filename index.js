@@ -82,24 +82,43 @@ gamesCard.innerHTML = GAMES_JSON.length;
  * Skills used: functions, filter
 */
 // show only games that do not yet have enough funding
+// function filterUnfundedOnly() {
+//     console.log("filterUnfundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
+
+//     addGamesToPage(unfundedGames);
+// }
+
+// // show only games that are fully funded
+// function filterFundedOnly() {
+//     console.log("filterFundedOnly function is being called.");
+//     deleteChildElements(gamesContainer);
+
+//     const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
+
+//     addGamesToPage(fundedGames);
+// }
+
 function filterUnfundedOnly() {
     console.log("filterUnfundedOnly function is being called.");
     deleteChildElements(gamesContainer);
 
-    const unfundedGames = GAMES_JSON.filter(game => game.raised < game.goal);
+    const unfundedGames = GAMES_JSON.filter(game => parseInt(game.raised) < parseInt(game.goal));
 
     addGamesToPage(unfundedGames);
 }
 
-// show only games that are fully funded
 function filterFundedOnly() {
     console.log("filterFundedOnly function is being called.");
     deleteChildElements(gamesContainer);
 
-    const fundedGames = GAMES_JSON.filter(game => game.raised >= game.goal);
+    const fundedGames = GAMES_JSON.filter(game => parseInt(game.raised) >= parseInt(game.goal));
 
     addGamesToPage(fundedGames);
 }
+
 
 // show all games
 function showAllGames() {
